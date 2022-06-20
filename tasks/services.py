@@ -20,7 +20,7 @@ def get_all_or_filter(model: Model, **filters: any) -> QuerySet:
 
 def get_notice_time(deadline: str) -> int:
     """ Возвращает время, через которое придет напоминание о дедлайне """
-    print((datetime.strptime(deadline, "%Y-%m-%d") - datetime.today() - timedelta(days=1)).seconds)
+
     return (datetime.strptime(deadline, "%Y-%m-%d") - datetime.today() - timedelta(days=1)).seconds
 
 
