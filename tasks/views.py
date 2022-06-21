@@ -5,7 +5,6 @@ from .models import Task, Tag
 from .serializers import TaskSerializer, TagSerializer
 from .services import get_all_or_filter, queryset_filter
 from .permissions import IsOwnerOrReadOnly
-from .tasks import send_notice
 from rest_framework.decorators import action
 
 

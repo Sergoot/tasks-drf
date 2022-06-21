@@ -21,7 +21,6 @@ def get_all_or_filter(model: Model, **filters: any) -> QuerySet:
     return model.objects.filter(**filters) if filters else model.objects.all()
 
 
-
 def queryset_filter(queryset: QuerySet, **filters: any) -> QuerySet:
     """ Возвращает фильтрованный QuerySet """
     return queryset.filter(**filters) if filters else queryset
