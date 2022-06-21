@@ -11,7 +11,7 @@ class TaskSerializer(serializers.ModelSerializer):
     deadline = serializers.DateField(required=True)
     tags = serializers.SlugRelatedField(
         many=True,
-        queryset= Tag.objects.all(),
+        queryset=Tag.objects.all(),
         slug_field='tag_name'
     )
 

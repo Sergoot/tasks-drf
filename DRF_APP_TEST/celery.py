@@ -5,8 +5,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DRF_APP_TEST.settings')
 app = Celery('DRF_APP_TEST')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
-
-
-@app.task(bind=True)
-def debug_task(self):
-    print(f'Request: {self.request!r}')

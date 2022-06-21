@@ -1,2 +1,3 @@
 setenv.sh
 db.sqlite3
+celerybeat-schedule

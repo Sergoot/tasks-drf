@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from celery.schedules import crontab
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'tasks',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -159,5 +162,13 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_TIMEZONE = "Europe/Moscow"
 CELERY_ACCEPT_CONTENT = ['json','application/text']
+
+
+CELERY_BEAT_SCHEDULE = {
+    'notice_deadline': {
+        'task': 'tasks.tasks.notice_deadline',
+        'schedule': crontab(minute=0, hour=12)
+    },
+}
 
 CORS_ALLOW_ALL_ORIGINS = True
