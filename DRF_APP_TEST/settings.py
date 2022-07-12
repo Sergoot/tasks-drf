@@ -170,5 +170,4 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute=0, hour=12)
     },
 }
-
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [os.environ.get('ALLOWED_HOST'), ]

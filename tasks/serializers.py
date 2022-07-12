@@ -20,8 +20,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        tags = validated_data['tags']
-        validated_data.pop('tags')
+        tags = validated_data.pop('tags', [])
         instance = Task.objects.create(**validated_data)
         for tag in tags:
             instance.tags.add(tag)
